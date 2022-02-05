@@ -6,9 +6,9 @@ const StylizedCard = styled(Card)`
     height: '155px';
     width: '18rem';
     cursor: pointer !important;
-    color: ${props => props.type === 'closed' ? '#842029' : '#0f5132'};
-    background-color: ${props => props.type === 'closed' ? '#e66572' : '#79b99c'} !important;
-    border-color: ${props => props.type === 'closed' ? '#e66572' : '#79b99c'} !important;
+    color: ${props => props.type === 'closed' ? '#d9d9d9' : '#0f5132'};
+    background-color: '#d9d9d9' !important;
+    border-color: '#d9d9d9' !important;
     transition: 0.3s;
 
     &:hover {   
