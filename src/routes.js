@@ -1,29 +1,21 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Routes, Navigate, Outlet  } from 'react-router-dom'
-import Appointment from './pages/appointment';
-
+import React, { Component } from "react";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
+import Appointment from "./pages/appointment";
+import SignUp from "./components/SignUp";
 
 function Home() {
-  return <h1>Home</h1>
-}
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-    </div>
-  );
+  return <h1>Home</h1>;
 }
 function Login() {
   return (
     <div>
       <h2>Login</h2>
-    </div>
-  );
-}
-function Signup() {
-  return (
-    <div>
-      <h2>SignUp</h2>
     </div>
   );
 }
@@ -35,23 +27,29 @@ function NotFound() {
   );
 }
 
-const RequireAuth = ({ children, ...rest}) => {
+const RequireAuth = ({ children, ...rest }) => {
   const auth = true; // determine if authorized, from context or however you're doing it
 
-    // If authorized, return an outlet that will render child elements
-    // If not, return element that will navigate to login page
-    return auth ? children : <Navigate to="/" state={{ from: rest.location }}/>;
-}
-
+  // If authorized, return an outlet that will render child elements
+  // If not, return element that will navigate to login page
+  return auth ? children : <Navigate to="/" state={{ from: rest.location }} />;
+};
 
 const RoutesComponent = () => (
   <BrowserRouter>
     <Routes>
-      <Route exact path="/" element={<Home/>} />
-      <Route path="/login" element={<Login/>} />
-      <Route path="/signup" element={<Signup/>} />
-      <Route path="/app" element={<RequireAuth><Appointment /></RequireAuth>} />
-      <Route path="*" element={<NotFound/>} />
+      <Route exact path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route
+        path="/app"
+        element={
+          <RequireAuth>
+            <Appointment />
+          </RequireAuth>
+        }
+      />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>
 );
