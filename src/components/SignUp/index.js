@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InputMask from "react-input-mask";
 import { Modal, Button, Form } from "./styles";
 
 function SignUp() {
@@ -42,25 +43,19 @@ function SignUp() {
                 id={`disabled-default-radio`}
               />
             </Form.Group>
-
+            {/* todo 
+              input phone mask 
+            */}
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Control type="text" placeholder="Telefone" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control
-                type="email"
-                autocomplete="false"
-                placeholder="Email"
-              />
+              <Form.Control type="text" placeholder="Email" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control
-                type="password"
-                autocomplete="false"
-                placeholder="Senha"
-              />
+              <Form.Control type="password" placeholder="Senha" />
             </Form.Group>
           </Form>
         </Modal.Body>
